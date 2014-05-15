@@ -1,0 +1,40 @@
+Currently this is the plan that I have
+
+Abstract
+Introduction			--not sure how the sections should be
+	(What is kmeans - colloquial, Where is it used)
+	(Parallelization, Why parallelize?)
+	(Our project basic intro. Papers read, Name and few lines on algorithms we used, Hardware features we used. Programming fundamentals involved)
+	(-- Anything else you think would be relevant)
+
+Chapter1 : K Means Clustering Problem
+	*Definition, popular works
+	*Approximation (why approximation. algorithms. bounds)
+	*Sampling based approaches
+		**KSS (with algo)
+		**D2 sampling (with algo)
+	*Analysis of sampling based approaches
+		**Ackerman
+	*Our analysis and Improvement
+	*Theoretical results and conclusions
+
+Chapter2 : Parallel Implemention
+	*Need for parallelization
+	*Basics of intel parallel architecture
+	*Parallel programming imperatives
+
+		--Can also make above 3 part of the same section
+
+	*Parallel version of algo (and some comments)
+
+	-- Some more sections involving the remaining code description and data
+
+Results
+
+-------------------------------------------------------------------------------------
+Legend
+--	Notes/Comment
+() 	Content
+*/**	Section/Subsection
+-------------------------------------------------------------------------------------
+Rough draft, we can update it as we go on.
