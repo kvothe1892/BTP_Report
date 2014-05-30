@@ -1,12 +1,29 @@
 \chapter{K Means Clustering Algorithms}
-K means clustering is a common problem. Given a set P and distance measure D, we need to minimize \Sigma{D(p,c)} where c belongs to set of centers C aand p is a point in P. What this means is that the sum of distances of points from their closest centers is minimum, hence the cost of the solution is minimum. Geometrically, it can be seen as deciding how to group points such that the resulting groups cover the points in optimal way. This problem is actually NP hard, and so to find exact solution, we need exponential amount of time, which eliminates all the interesting systems that'd benefit the most from the clusters so formed.
 
-Another way to do it, the one that our project was based on, is to find approximate solutions, more specifically find groups that are provably within some (1+e) fraction of the unknown optimal solution. For this, there are a lot of existing algorithms, out of which most popular is Lloyds. In Lloyds, the main idea is generally to iterate and choose better centers until you converge. But Lloyds is not good, since you can just fall in a ditch, ie get stuck with centers that are not the best, in which the algorithm gets stuck based on the choice of initial centers. Any deterministic algorithm is not feasible for general data sets, and randomized algorithms have the drawback of choosing points with equal probability. We implemented a changed algorithm where sampling was not perfectly random, but in set of points P where there are outliers away from most cluster, ie the optimal clusters are well separated and some of them sparse, we would almost always end up in less than optimal solutions.
+\paragraph{K means clustering is a common problem. Given a set P and distance measure D, we need to minimize \Sigma{D(p,c)} where c belongs to set of centers C aand p is a point in P. What this means is that the sum of distances of points from their closest centers is minimum, hence the cost of the solution is minimum. Geometrically, it can be seen as deciding how to group points such that the resulting groups cover the points in optimal way. This problem is actually NP hard, and so to find exact solution, we need exponential amount of time, which eliminates all the interesting systems that'd benefit the most from the clusters so formed.
+}
+
+\section{Summary of previous results}
+\begin{center}
+\begin{tabular}{|c|c {5 cm}|}
+\hline
+{\bf Problem} & {\bf Results$^[Reference]$}\\ \hline 
+1-median & $O(n/\epsilon^{2})$ \\ \hline
+\multirow{4}{*}{k-median} & $O(n^{O(1/\epsilon) +1}$ for $d = 2$ \\ \hline
+                          & $O(\xi.nlogn.logl$) \t where $\xi = exp[O((1+log(1/\epsilon))/\epsilon)^{d-1}]$ --discrete only\\ \hline
+                          & $O(2^{(k/\epsilon)^{O(1)}}.d^{O(1)}.nlog^{k}n)$ \\ \hline
+                          & $O(n + \xi.k^{O(1)}.log^{O(1)}n$) \t where $\xi = exp[O((1+log(1/\epsilon))/\epsilon)^{d-1}]$ -- discrete also\\ \hline
+ \multirow{3}{*}{k-means} & $O(n\epsilon^{-2k^{2}d}log^{k}n)$ \\ \hline
+                          & $O(g(k,\epsilon)nlog^{k}n)$ where $g(k,\epsilon) = exp[(k^{3}/\epsilon^{8})(ln(k/epsilon)ln(k)]$ \\ \hline
+                          & $O(n+k^{k+2}\epsilon{-(2d+1)k}log^{k+1}nlog^{k}(1/\epsilon)$ --discrete also \\ \hline
+\end{tabular}
+\end{center}
+\paragraph{ Another way to do it, the one that our project was based on, is to find approximate solutions, more specifically find groups that are provably within some (1+e) fraction of the unknown optimal solution. For this, there are a lot of existing algorithms, out of which most popular is Lloyds. In Lloyds, the main idea is generally to iterate and choose better centers until you converge. But Lloyds is not good, since you can just fall in a ditch, ie get stuck with centers that are not the best, in which the algorithm gets stuck based on the choice of initial centers. Any deterministic algorithm is not feasible for general data sets, and randomized algorithms have the drawback of choosing points with equal probability. We implemented a changed algorithm where sampling was not perfectly random, but in set of points P where there are outliers away from most cluster, ie the optimal clusters are well separated and some of them sparse, we would almost always end up in less than optimal solutions.
 
 After Lloyd's, there have been proposed a lot of solutions, and the best running time is <check this>, due to Inaba (i think). Then there is KSS, and the basis of our work - D2 sampling paper.
 %Replace \lipsum with text.
 % You may have as many sections as you please. This is just for reference.
-
+}
 \section{SECTION NAME}
 \lipsum[2]
 
